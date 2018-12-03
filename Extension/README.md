@@ -1,8 +1,9 @@
 # Snippets for Creating Azure DevOps YAML configuration
 
 
-This extension adds snippets to Visual Studio Code for creating Azure Resource Manager Templates. These snippets are taken from the [Cross Platform Tooling Samples]
-(https://github.com/Azure/azure-xplat-arm-tooling). Snippets include
+This extension adds snippets to Visual Studio Code for creating Azure DevOps Pipeline YAML configuration. 
+
+Snippets include:
 
 * Skeleton Pipeline
 * Pipeline Jobs

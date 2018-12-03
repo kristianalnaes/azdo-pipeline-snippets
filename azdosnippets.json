@@ -1,0 +1,233 @@
+"Azure DevOps Pipeline Template": {
+    "prefix": "azdo-pipeline",
+    "body": [
+        "    name : string",
+        "    resources: ",
+        "    variables:",
+        "    trigger:",
+        "    pr: ",
+        "    jobs:"
+    ],
+    "description": "Azure DevOps Pipeline Template"
+},
+
+"Azure DevOps Pipeline Job": {
+
+    "prefix": "azdo-pipeline-job",
+
+    "body": [
+
+        "- job: ",
+        "   displayName:",
+        "   dependsOn:",
+        "   condition:",
+        "   continueOnError: bool",
+        "   pool:",
+        "   workspace:",
+        "       clean:",
+        "   timeoutInMinutes:",
+        "   variables:",
+        "   steps:"
+    ],
+
+    "description": "Azure DevOps Pipeline Job Template"
+},
+
+"Azure DevOps Pipeline Step": {
+
+    "prefix": "azdo-pipeline-step",
+
+    "body": [
+        "- script:",
+        "- template:",
+        "   parameters:",
+    ],
+    "description": "Azure DevOps Pipeline Step"
+},
+"Azure DevOps Pipeline Trigger": {
+
+    "prefix": "azdo-pipeline-trigger",
+
+    "body": [
+        "trigger:",
+        "   batch:",
+        "   branches:",
+        "       include:",
+        "   paths:",
+        "       exclude:",
+        "       - README.md"
+    ],
+    "description": "Azure DevOps Pipeline Trigger"
+},
+"Azure DevOps Pipeline PR Trigger": {
+
+    "prefix": "azdo-pipeline-pr-trigger",
+
+    "body": [
+        "pr:",
+        "   branches:",
+        "       include:",
+        "   paths:",
+        "       exclude:",
+        "       - README.md"
+    ],
+    "description": "Azure DevOps Pipeline PR Trigger"
+},
+
+"Azure DevOps Pipeline Task": {
+    "prefix": "azdo-pipeline-task",
+    "body": [
+
+        "- task: taskType",
+        "   displayName:",
+        "   name:",
+        "   condition:",
+        "   continueOnError:",
+        "   enabled: true",
+        "   timeoutInMinutes:"
+        "   inputs:",
+        "   env:"
+    ],
+    "description": "Azure DevOps Pipeline Task"
+},
+
+"Azure DevOps Pipeline Script": {
+    "prefix": "azdo-pipeline-script",
+    "body": [
+        "- script: cmd scriptname",
+        "   displayName:",
+        "   name:",
+        "   workingDirectory:",
+        "   failOnStderr: bool",
+        "   continueOnError: bool",
+        "   enabled:true",
+        "   timeoutInMinutes:",
+        "   env:",
+    ],
+    "description": "Azure DevOps Pipeline Script - Cmd Task shortcut"
+},
+
+"Azure DevOps Pipeline repository": {
+    "prefix": "azdo-pipeline-repository",
+    "body": [
+        "- repository:",
+        "   type: git",
+        "   name:",
+        "   ref: refs/heads/master",
+        "   endpoint: "
+    ],
+    "description": "Azure DevOps Pipeline repository"
+},
+"Azure DevOps Pipeline VSBuild Task": {
+    "prefix": "azdo-pipeline-vsbuildtask",
+    "body": [
+        "- task: VSBuild@1",
+            "inputs:",
+                "solution: **\\*.sln",
+                "vsVersion: 'latest' # Optional. Options: latest, 15.0, 14.0, 12.0, 11.0",
+                "msbuildArgs:",
+                "platform:",
+                "configuration: ",
+                "clean: false ",
+                "maximumCpuCount: false ",
+                "restoreNugetPackages: false",
+                "msbuildArchitecture: 'x64'",
+                "logProjectEvents: true",
+                "createLogFile: false"
+    ],
+    "description": "Azure DevOps Pipeline VS Build Task"
+},
+"Azure DevOps Pipeline Docker Build Task": {
+    "prefix": "azdo-pipeline-docker-build-task",
+    "body": [
+        "- task: Docker@1",
+        "   displayName: Docker Build repo",
+        "   inputs:",
+        "       containerregistrytype: 'Container Registry'",
+        "       dockerRegistryEndpoint: Contoso",
+               
+    ],
+    "description": "Azure DevOps Pipeline Docker Build Task"
+},
+"Azure DevOps Pipeline Docker Push Task": {
+    "prefix": "azdo-pipeline-docker-push-task",
+    "body": [
+        "- task: Docker@1",
+        "   displayName: Docker Push Image",
+        "   inputs:",
+        "       command: 'push'",
+        "       imageName: 'repository/$repositoryname:$(Build.BuildId)'",
+    ],
+    "description": "Azure DevOps Pipeline Docker Push Task"
+},
+"Azure DevOps Pipeline PowerShell Task": {
+    "prefix": "azdo-pipeline-powershell-task",
+    "body": [
+        "- powershell:",
+        "   workingDirectory:",
+        "   displayName:",
+        "   failOnStderr: bool",
+        "   ignoreLASTEXITCODE:true",
+    ],
+    "description": "Azure DevOps Pipeline PowerShell Task"
+},
+"Azure DevOps Pipeline VS Test": {
+    "prefix": "azdo-pipeline-vstest",
+    "body": [
+        "- task: VSTest@2",
+        "   inputs:",
+        "       testSelector: 'testAssemblies'"
+        "       testAssemblyVer2: '**\\*test*.dll!**\\*TestAdapter.dll!**\\obj\\**'"
+        "       testPlan: # Required when testSelector == TestPlan"
+        "       testSuite: # Required when testSelector == TestPlan"
+        "       testConfiguration: # Required when testSelector == TestPlan"
+        "       tcmTestRun: '$(test.RunId)' # Optional"
+        "       searchFolder: '$(System.DefaultWorkingDirectory)'" 
+        "       testFiltercriteria: "
+        "       runOnlyImpactedTests: False"
+        "       runAllTestsAfterXBuilds: '50'"
+        "       uiTests: false # Optional"
+        "       vstestLocationMethod: 'version'"
+        "       vsTestVersion: 'latest' "
+        "       vstestLocation: # Optional"
+        "       runSettingsFile: # Optional"
+        "       overrideTestrunParameters: # Optional"
+        "       pathtoCustomTestAdapters: # Optional"
+        "       runInParallel: False # Optional"
+        "       runTestsInIsolation: False # Optional"
+        "       codeCoverageEnabled: False # Optional"
+        "       otherConsoleOptions: # Optional"
+        "       distributionBatchType: 'basedOnTestCases' "
+        "       batchingBasedOnAgentsOption: 'autoBatchSize'"
+        "       customBatchSizeValue: '10'"
+        "       batchingBasedOnExecutionTimeOption: 'autoBatchSize'"
+        "       customRunTimePerBatchValue: '60'"
+        "       dontDistribute: False"
+        "       testRunTitle:"
+        "       platform: "
+        "       configuration: "
+        "       publishRunAttachments: true"
+        "       diagnosticsEnabled: True"
+        "       collectDumpOn: 'onAbortOnly'"
+        "       rerunFailedTests: False"
+        "       rerunType: 'basedOnTestFailurePercentage'"
+        "       rerunFailedThreshold: '30'"
+        "       rerunFailedTestCasesMaxLimit: '5'"
+        "       rerunMaxAttempts: '3'"
+    ],
+    "description": "Azure DevOps Pipeline VS Test"
+},
+"Azure DevOps Pipeline Copy Files Task": {
+    "prefix": "azdo-pipeline-filecp-task",
+    "body": [
+        "- task: CopyFiles@2",
+        "   inputs:",
+        "       sourceFolder:",
+        "       contents: '**'",
+        "       targetFolder:",
+        "       cleanTargetFolder:",
+        "       overWrite: false",
+        "       flattenFolders: false"
+    ],
+    "description": "Azure DevOps Pipeline Copy Files Task"
+},

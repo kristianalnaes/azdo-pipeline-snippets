@@ -12,7 +12,7 @@ Snippets include:
 
 ## Inserting Snippets
 
-Inside any a YAML file, start typing azdo to see a list of snippets availible. Select the snippet to insert and update any required values.
+Inside any YAML file, start typing azdo to see a list of snippets availible. Select the snippet to insert and update any required values.
 
 ![skeleton](https://raw.githubusercontent.com/sam-cogan/arm-snippets-vscode/master/Extension/images/skeleton.gif)
 

@@ -27,8 +27,7 @@
         "vscode": "^1.13.0"
     },
     "categories": [
-        "Snippets",
-        "Azure"
+        "Snippets"
     ],
     "contributes": {
         "snippets": [

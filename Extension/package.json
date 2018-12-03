@@ -3,7 +3,7 @@
     "displayName": "Azure DevOps Pipeline YAML Snippets",
     "description": "Snippets for creating Azure DevOps YAML pipeline configuration",
     "license": "SEE LICENSE IN LICENSE.md",
-    "version": "extensionversionnumber",
+    "version": "1.0.0",
     "publisher": "kristianalnaes",
     "icon": "images/logo.png",
     "galleryBanner": {
